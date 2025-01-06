@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller Familiar Zambrano</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        /* Encabezado principal */
+        .header {
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            transition: transform 0.3s;
+        }
+
+        .header h1 {
+            cursor: pointer;
+            animation: titleAnimation 3s infinite;
+        }
+
+        .header:hover h1 {
+            transform: scale(1.1);
+        }
+
+        @keyframes titleAnimation {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(5deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        .header p {
+            font-size: 1.1em;
+        }
+
+        /* Menú horizontal */
+        .menu-container {
+            background-color: #4CAF50;
+            color: white;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        .menu-container nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .menu-container nav a:hover {
+            background-color: #333;
+        }
+
+        /* Contenido principal */
+        .content {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        h2 {
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        /* Sección "Sobre Nosotros" */
+        #nosotros p {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        /* Estrellas y Me Gusta en comentarios */
+        .stars {
+            color: #FFD700;
+            font-size: 1.2em;
+        }
+
+        .comment {
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .comment .likes {
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+
+        .comment .likes:hover {
+            background-color: #333;
+        }
+
+        /* Formulario de comentario */
+        .comment-form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .comment-form textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .comment-form .stars {
+            margin-bottom: 10px;
+        }
+
+        .comment-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .comment-form button:hover {
+            background-color: #333;
+        }
+
+        /* Pie de página */
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        /* Efectos de transición para las estrellas */
+        .stars:hover {
+            cursor: pointer;
+            color: #FFA500;
+        }
+
+        /* Efecto de iluminación y expansión para las imágenes */
+        #obras img {
+    width: 300px;  /* Ajusta el tamaño de las imágenes */
+    height: 200px; /* Asegura que las imágenes mantengan una altura constante */
+    object-fit: cover; /* Mantiene la proporción de la imagen sin distorsión */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+#obras img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado principal -->
+    <div class="header">
+        <h1>Taller Familiar Zambrano</h1>
+        <p>Calidad y tradición en cada mueble</p>
+    </div>
+
+    <!-- Menú horizontal -->
+    <div class="menu-container">
+        <nav>
+            <a href="#" onclick="showSection('nosotros')">Sobre Nosotros</a>
+            <a href="#" onclick="showSection('obras')">Obras</a>
+            <a href="#" onclick="showSection('contacto')">Contáctanos</a>
+            <a href="#" onclick="showSection('referencias')">Referencias</a>
+        </nav>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="content">
+        <div id="nosotros" class="section active">
+            <h2>Sobre Nosotros</h2>
+            <p>En el Taller Familiar Zambrano, nos dedicamos a la creación de muebles únicos y personalizados. Elaboramos camas, mesas, estanterías, puertas, armarios, escritorios y todo tipo de objetos de madera con gran atención al detalle. Nuestro taller ha pasado de generación en generación, comenzando con mi abuelo, seguido por mi padre, y ahora gestionado con el mismo compromiso y pasión. Aunque solo trabajo yo, cada pedido se realiza con la máxima dedicación, asegurando la satisfacción total de nuestros clientes. ¡La confianza de nuestros clientes es nuestro mejor respaldo!</p>
+        </div>
+
+        <div id="obras" class="section">
+            <h2>Obras</h2>
+            <div>
+                <img src="Obra 1.jpg" alt="Obra 1">
+                <img src="Obra 2.jpg" alt="Obra 2">
+                <img src="Obra 3.jpg" alt="Obra 3">
+                <img src="Obra 4.jpg" alt="Obra 4">
+            </div>
+        </div>
+
+        <div id="contacto" class="section">
+            <h2>Contáctanos</h2>
+            <p><strong>Correo electrónico:</strong> henrryzam11@gmail.com</p>
+            <p><strong>Teléfono:</strong> +593 96 260 2438</p>
+            <p><strong>Ubicación:</strong> Ciudadela Patria Nueva, Machala, Ecuador</p>
+        </div>
+
+        <div id="referencias" class="section">
+            <h2>Referencias</h2>
+            <div class="comment">
+                <div>
+                    <p>"Excelente trabajo, la calidad es insuperable. Totalmente recomendado." - Juan Pérez</p>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="likes" onclick="likeComment(this)">👍</div>
+            </div>
+            <div class="comment">
+                <div>
+                    <p>"Pedí una cama personalizada y superó mis expectativas. ¡Gracias!" - María Gómez</p>
+                    <div class="stars">⭐⭐⭐⭐</div>
+                </div>
+                <div class="likes" onclick="likeComment(this)">👍</div>
+            </div>
+            <div class="comment">
+                <div>
+                    <p>"Un taller con mucha tradición y compromiso. ¡Volveré sin duda!" - Carlos Ramírez</p>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="likes" onclick="likeComment(this)">👍</div>
+            </div>
+            <div class="comment">
+                <div>
+                    <p>"Es impresionante cómo cuidan cada detalle. Mis muebles están perfectos." - Sofía López</p>
+                    <div class="stars">⭐⭐⭐⭐</div>
+                </div>
+                <div class="likes" onclick="likeComment(this)">👍</div>
+            </div>
+
+            <!-- Formulario de Comentarios -->
+            <div class="comment-form">
+                <h3>Deja tu comentario</h3>
+                <textarea placeholder="Escribe tu comentario aquí..."></textarea>
+                <div class="stars">
+                    <label>Calificación: </label>
+                    <span>⭐⭐⭐⭐⭐</span>
+                </div>
+                <button>Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 Elaborado por Centeno Jhonny. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Función para mostrar las secciones
+        function showSection(section) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach((sec) => {
+                sec.classList.remove('active');
+            });
+            document.getElementById(section).classList.add('active');
+        }
+
+        // Función para dar like a los comentarios
+        function likeComment(likeButton) {
+            likeButton.textContent = '👍 ' + (parseInt(likeButton.textContent.split(' ')[1] || 0) + 1);
+        }
+    </script>
+
+</body>
+</html>
